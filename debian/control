@@ -17,3 +17,8 @@ Package: mpgc-dev
 Architecture: arm64 amd64
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Development library for Multi-Process Garbage Collection
+
+Package: mpgc-dbg
+Architecture: arm64 amd64
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Development library for Multi-Process Garbage Collection

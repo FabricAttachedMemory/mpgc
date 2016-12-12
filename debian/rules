@@ -24,8 +24,14 @@ include /usr/share/dpkg/default.mk
 override_dh_auto_build:
 	# I'm not rewiriting the build system
 	cd build/intel-opt/ && make
+	cd build/intel-debug/ && make
+	cd ruts/build/intel-debug && make
 
 override_dh_auto_install:
 	# I'm not rewiriting the build system
 	cd build/intel-opt && make install DESTDIR=../../debian/tmp/usr
 	cd ruts/build/intel-opt && make install DESTDIR=../../../debian/tmp/usr
+
+	# hackity-hack-hack
+	cd build/intel-debug && make install-libs DESTDIR=../../debian/tmp/usr/lib/debug
+	cd ruts/build/intel-debug && make install-libs DESTDIR=../../debian/tmp/usr/lib/debug
