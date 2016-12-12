@@ -1,0 +1,84 @@
+Index: mpgc-0.1/build/build.mk
+===================================================================
+--- mpgc-0.1.orig/build/build.mk
++++ mpgc-0.1/build/build.mk
+@@ -121,7 +121,7 @@ $(project_name)_projects_used ?= $(proje
+ # config-specific makefile.
+ 
+ 
+-install_dir ?= $(git_base_dir)/install
++install_dir  = ${DESTDIR}
+ $(project_name)_install_dir ?= $(install_dir)
+ 
+ install_includes_dir ?= $($(project_name)_install_dir)/include
+@@ -201,7 +201,7 @@ $(project_name)_debug_flag ?= $(debug_fl
+ extra_cxx_flags ?= -Wall -fmessage-length=0 -pthread -fPIC
+ $(project_name)_extra_cxx_flags ?= $(extra_cxx_flags)
+ 
+-CPPFLAGS ?= \
++CPPFLAGS += \
+ 	$(std_flag) \
+ 	$($(project_name)_cpp_defines) \
+ 	$($(project_name)_cpp_includes) \
+@@ -209,16 +209,16 @@ CPPFLAGS ?= \
+ 	$($(project_name)_extra_cpp_flags)
+ $(project_name)_CPPFLAGS ?= $(CPPFLAGS)
+ 
+-CXXFLAGS ?= \
++CXXFLAGS += \
+ 	$($(project_name)_opt_flag) \
+ 	$($(project_name)_debug_flag) \
+ 	$($(project_name)_extra_cxx_flags)
+ $(project_name)_CXXFLAGS ?= $(CXXFLAGS)
+ 
+-LDFLAGS ?=
++LDFLAGS +=
+ $(project_name)_LDFLAGS ?= $(LDFLAGS)
+ 
+-LIBS ?= -lstdc++ -lpthread
++LIBS += -lstdc++ -lpthread
+ $(project_name)_LIBS ?= $(LIBS)
+ 
+ ######################################
+Index: mpgc-0.1/ruts/build/build.mk
+===================================================================
+--- mpgc-0.1.orig/ruts/build/build.mk
++++ mpgc-0.1/ruts/build/build.mk
+@@ -121,7 +121,7 @@ $(project_name)_projects_used ?= $(proje
+ # config-specific makefile.
+ 
+ 
+-install_dir ?= $(git_base_dir)/install
++install_dir = ${DESTDIR}
+ $(project_name)_install_dir ?= $(install_dir)
+ 
+ install_includes_dir ?= $($(project_name)_install_dir)/include
+@@ -201,7 +201,7 @@ $(project_name)_debug_flag ?= $(debug_fl
+ extra_cxx_flags ?= -Wall -fmessage-length=0 -pthread -fPIC
+ $(project_name)_extra_cxx_flags ?= $(extra_cxx_flags)
+ 
+-CPPFLAGS ?= \
++CPPFLAGS += \
+ 	$(std_flag) \
+ 	$($(project_name)_cpp_defines) \
+ 	$($(project_name)_cpp_includes) \
+@@ -209,16 +209,16 @@ CPPFLAGS ?= \
+ 	$($(project_name)_extra_cpp_flags)
+ $(project_name)_CPPFLAGS ?= $(CPPFLAGS)
+ 
+-CXXFLAGS ?= \
++CXXFLAGS += \
+ 	$($(project_name)_opt_flag) \
+ 	$($(project_name)_debug_flag) \
+ 	$($(project_name)_extra_cxx_flags)
+ $(project_name)_CXXFLAGS ?= $(CXXFLAGS)
+ 
+-LDFLAGS ?=
++LDFLAGS +=
+ $(project_name)_LDFLAGS ?= $(LDFLAGS)
+ 
+-LIBS ?= -lstdc++ -lpthread
++LIBS += -lstdc++ -lpthread
+ $(project_name)_LIBS ?= $(LIBS)
+ 
+ ######################################
